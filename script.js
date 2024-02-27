@@ -393,6 +393,8 @@
             tempOptions.ffmpegArray.push(`${conversionOptions.output.name}.${tempOptions.fileExtension}.tempa.${tempOptions.fileExtension}`); // Push the output file name
         }
         finalScript.push(...tempOptions.ffmpegArray);
+        finalScript.push("-preset");
+        finalScript.push("veryfast");
         await ffmpeg.run(...finalScript); // Run conversion
         let startDifferentText = "a";
         if (conversionOptions.output.custom) { // Get file name and extension of the custom file output
